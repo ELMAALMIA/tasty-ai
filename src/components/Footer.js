@@ -114,9 +114,9 @@ const Footer = () => {
               © {new Date().getFullYear()} TastyAI. All rights reserved.
             </div>
             <div className="flex space-x-4 text-sm text-gray-400 md:justify-end">
-              <a href="#" className="hover:text-orange-500 transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-orange-500 transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-orange-500 transition-colors">Cookie Policy</a>
+              <Link to="/privacy-policy" className="hover:text-orange-500 transition-colors">Privacy Policy</Link>
+              <Link to="/terms-of-service" className="hover:text-orange-500 transition-colors">Terms of Service</Link>
+              <Link to="/cookie-policy" className="hover:text-orange-500 transition-colors">Cookie Policy</Link>
             </div>
           </div>
         </div>
