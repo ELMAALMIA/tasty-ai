@@ -41,20 +41,21 @@ const Recipe = () => {
       
       <div className="bg-white rounded-lg shadow-md p-6">
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label htmlFor="ingredients" className="block text-lg mb-2">
-              Enter your ingredients:
-            </label>
-            <input
-              type="text"
-              id="ingredients"
-              value={formData.ingredients}
-              onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-              placeholder="e.g., tomatoes, cheese, pasta"
-              required
-            />
-          </div>
+        <div>
+  <label htmlFor="ingredients" className="block text-lg mb-2">
+    Enter your ingredients:
+  </label>
+  <textarea
+    id="ingredients"
+    value={formData.ingredients}
+    onChange={handleChange}
+    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+    placeholder="e.g., tomatoes, cheese, pasta"
+    required
+    rows={4} // You can adjust the number of rows as needed
+  />
+</div>
+
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
