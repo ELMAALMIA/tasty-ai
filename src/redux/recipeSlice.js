@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const generateRecipe = createAsyncThunk(
   'recipe/generate',
   async (formData) => {
-    const response = await fetch('http://localhost:8080/api/recipes/generate', {
+    const response = await fetch('https://tasty-ai-9affc94ff0d5.herokuapp.com/api/recipes/generate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
