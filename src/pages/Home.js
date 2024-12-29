@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ChefHat, Utensils, Clock, UserCheck } from 'lucide-react';
 import { Helmet } from 'react-helmet';
+import AdUnit from '../components/AdUnit';
 
 const Home = () => {
   return (
@@ -79,6 +80,8 @@ const Home = () => {
             </p>
           </div>
         </div>
+        <AdUnit slot="home-features" className="mb-16" />
+
 
         {/* CTA Section */}
         <div id="how-it-works" className="bg-orange-50 rounded-3xl p-8 mb-12">
@@ -88,6 +91,7 @@ const Home = () => {
               Transform your cooking experience in three simple steps
             </p>
           </div>
+          <AdUnit slot="home-how-it-works" className="mb-12" />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[

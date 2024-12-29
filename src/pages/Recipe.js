@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { generateRecipe } from '../redux/recipeSlice';
 import { UtensilsCrossed, Loader } from 'lucide-react';
+import AdUnit from '../components/AdUnit';
 
 const Recipe = () => {
   const [formData, setFormData] = useState({
@@ -134,6 +135,7 @@ const Recipe = () => {
             <p className="text-sm">{error}</p>
           </div>
         )}
+<AdUnit slot="recipe-form-bottom" className="my-8" />
 
         {recipe && recipe.status === 'success' && (
           <div className="mt-8 bg-orange-50 rounded-xl p-6 border border-orange-100">

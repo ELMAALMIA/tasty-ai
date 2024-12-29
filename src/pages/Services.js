@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { ChefHat, Clock, Book, Sparkles } from 'lucide-react';
+import AdUnit from '../components/AdUnit';
 
 const Services = () => {
   // Schema.org structured data for rich snippets
@@ -89,6 +90,7 @@ const Services = () => {
             </article>
           ))}
         </section>
+        <AdUnit slot="services-bottom" className="mb-12" />
 
         {/* CTA Section */}
         <section className="mt-12 text-center">
