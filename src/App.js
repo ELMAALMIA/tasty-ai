@@ -9,6 +9,7 @@ import Recipe from './pages/Recipe';
 import SEOHead from './components/SEOHead';
 import Footer from './components/Footer';
 import Services from './pages/Services';
+import AdUnit from './components/AdUnit';
 
 const App = () => {
   return (
@@ -16,6 +17,8 @@ const App = () => {
        <SEOHead />
       <div className="min-h-screen bg-gray-50">
         <Navbar />
+        
+        <AdUnit /> {/* Top ad after navbar */}
         <main className="container mx-auto px-4 py-8">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -24,6 +27,7 @@ const App = () => {
             <Route path="/recipe" element={<Recipe />} />
           </Routes>
         </main>
+        <AdUnit /> {/* Bottom ad before footer */}
         <Footer />
       </div>
     </Router>
