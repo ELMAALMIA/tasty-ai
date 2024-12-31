@@ -90,7 +90,12 @@ const Services = () => {
             </article>
           ))}
         </section>
-        <AdUnit slot="services-bottom" className="mb-12" />
+        <AdUnit 
+  slot="1234567890"
+  format="rectangle" 
+  className="my-4"
+  fallbackHeight="250px"
+/>
 
         {/* CTA Section */}
         <section className="mt-12 text-center">

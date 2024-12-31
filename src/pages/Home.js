@@ -80,7 +80,12 @@ const Home = () => {
             </p>
           </div>
         </div>
-        <AdUnit slot="home-features" className="mb-16" />
+        <AdUnit 
+  slot="1234567890"
+  format="rectangle" 
+  className="my-4"
+  fallbackHeight="250px"
+/>
 
 
         {/* CTA Section */}

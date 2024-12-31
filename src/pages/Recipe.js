@@ -135,7 +135,12 @@ const Recipe = () => {
             <p className="text-sm">{error}</p>
           </div>
         )}
-<AdUnit slot="recipe-form-bottom" className="my-8" />
+<AdUnit 
+  slot="1234567890"
+  format="rectangle" 
+  className="my-4"
+  fallbackHeight="250px"
+/>
 
         {recipe && recipe.status === 'success' && (
           <div className="mt-8 bg-orange-50 rounded-xl p-6 border border-orange-100">

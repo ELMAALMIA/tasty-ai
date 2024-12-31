@@ -1,68 +1,50 @@
-// src/components/AdUnit.js
+
 import React, { useEffect, useState } from 'react';
-import { ADSENSE_CONFIG } from '../config/adsense';
+
 
 const AdUnit = ({ slot, format = 'auto', className = '' }) => {
-  const [isAdLoaded, setIsAdLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Only proceed if AdSense is enabled in config
-    if (!ADSENSE_CONFIG.isEnabled) {
-      return;
-    }
-
-    // Load Google AdSense script if not already loaded
     if (!window.adsbygoogle) {
       const script = document.createElement('script');
-      script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js';
+      script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6911267030368068';
       script.async = true;
       script.crossOrigin = 'anonymous';
-      script.onload = () => setIsAdLoaded(true);
-      script.onerror = (error) => {
-        console.error('Failed to load AdSense script:', error);
-        setIsAdLoaded(false);
-      };
+      script.onload = () => setIsLoaded(true);
       document.head.appendChild(script);
     } else {
-      setIsAdLoaded(true);
+      setIsLoaded(true);
     }
 
-    // Push ad when component mounts
-    const pushAd = () => {
+    return () => {
+      const script = document.querySelector('script[src*="adsbygoogle"]');
+      if (script) {
+        script.remove();
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isLoaded) {
       try {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
       } catch (err) {
         console.error('AdSense error:', err);
       }
-    };
-
-    // Wait for script to be loaded
-    if (isAdLoaded) {
-      pushAd();
     }
-  }, [isAdLoaded]);
-
-  // Don't render anything if AdSense is disabled
-  if (!ADSENSE_CONFIG.isEnabled) {
-    return null;
-  }
+  }, [isLoaded]);
 
   return (
     <div className={`ad-container ${className}`}>
-      {isAdLoaded && ADSENSE_CONFIG.clientId ? (
-        <ins
-          className="adsbygoogle"
-          style={{ display: 'block', minHeight: '100px' }}
-          data-ad-client={`ca-pub-${ADSENSE_CONFIG.clientId}`}
-          data-ad-slot={slot}
-          data-ad-format={format}
-          data-full-width-responsive="true"
-        />
-      ) : (
-        <div className="h-24 bg-gray-50 rounded-lg flex items-center justify-center">
-          <p className="text-gray-400">Advertisement</p>
-        </div>
-      )}
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block', minHeight: '100px' }}
+        data-ad-client="ca-pub-6911267030368068"
+        data-ad-slot={slot}
+        data-ad-format={format}
+        data-full-width-responsive="true"
+      />
     </div>
   );
 };
